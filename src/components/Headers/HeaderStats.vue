@@ -54,8 +54,8 @@
             <div class="w-full lg:w-6/12 xl:w-3/12 px-4">
               <card-stats
                 @click="changeFilter('Completed')"
-                statSubtitle="Completed orders"
-                statTitle="965"
+                statSubtitle="All orders"
+                statTitle=""
                 statArrow="up"
                 statPercent="12"
                 statPercentColor="text-emerald-500"

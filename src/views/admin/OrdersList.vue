@@ -18,7 +18,7 @@
             ? 'Approved Orders'
             : filter === 'Accepted'
             ? 'Accepted Orders'
-            : 'Completed Orders'
+            : 'All Orders'
         "
       >
         <tr
@@ -79,7 +79,7 @@
               Accepted
             </div>
             <div v-else-if="biker.status === 'approved'">
-              <i class="fas fa-circle text-orange-500 mr-2"></i>
+              <i class="fas fa-circle text-emerald-500 mr-2"></i>
               Approved
             </div>
             <div v-else-if="biker.status === 'pending'">
@@ -106,10 +106,11 @@
             <button
               class="bg-emerald-500 text-white active:bg-indigo-600 text-xs font-bold uppercase px-3 py-1 rounded outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
               type="button"
-              @click="writeOrderData(keys[i], { ...biker, status: 'accepted' })"
+              @click="writeOrderData(keys[i], { ...biker, status: 'approved' })"
             >
               Approve
             </button>
+
             <button
               class="bg-red-500 text-white active:bg-indigo-600 text-xs font-bold uppercase px-3 py-1 rounded outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
               type="button"
@@ -157,7 +158,7 @@ export default {
       const db = getDatabase();
       set(ref(db, "order/" + orderId), {
         ...status,
-      });
+      }).then;
     },
   },
   computed: {

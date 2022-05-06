@@ -216,7 +216,7 @@
               <a
                 :href="href"
                 @click="
-                  s(orders.length);
+                  s(pendingOrders.length);
                   navigate;
                 "
                 class="text-xs uppercase py-3 font-bold block"
@@ -232,7 +232,7 @@
                 ></i>
                 Orders List
                 <i
-                  v-if="orders.length > ol"
+                  v-if="pendingOrders.length > ol"
                   class="fas text-blueGray-300 mr-2 text-sm"
                 >
                   <div
@@ -248,7 +248,7 @@
                     "
                     class="fas"
                   >
-                    {{ orders.length }}
+                    {{ pendingOrders.length }}
                   </div></i
                 >
               </a>
@@ -313,12 +313,17 @@ export default {
     };
   },
   created() {
-    this.ol = this.orders.length;
+    this.ol = this.pendingOrders.length;
   },
   props: {
     orders: {
       type: Array,
       required: true,
+    },
+  },
+  computed: {
+    pendingOrders() {
+      return this.orders.filter((order) => order.status === "pending");
     },
   },
   methods: {

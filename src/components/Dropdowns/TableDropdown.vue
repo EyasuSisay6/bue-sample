@@ -5,6 +5,7 @@
       href="#pablo"
       ref="btnDropdownRef"
       v-on:click="toggleDropdown($event)"
+      @blur="toggleDropdown($event)"
     >
       <i class="fas fa-ellipsis-v"></i>
     </a>
@@ -17,22 +18,21 @@
       }"
     >
       <a
-        href="javascript:void(0);"
         class="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-blueGray-700"
       >
-        Action
+        Approve
       </a>
       <a
         href="javascript:void(0);"
         class="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-blueGray-700"
       >
-        Another action
+        Cancel
       </a>
       <a
         href="javascript:void(0);"
         class="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-blueGray-700"
       >
-        Something else here
+        Delete
       </a>
     </div>
   </div>

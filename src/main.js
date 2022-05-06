@@ -21,6 +21,8 @@ import Dashboard from "@/views/admin/Dashboard.vue";
 import Settings from "@/views/admin/Settings.vue";
 import Tables from "@/views/admin/Tables.vue";
 import Maps from "@/views/admin/Maps.vue";
+import BikersList from "@/views/admin/BikersList.vue";
+import OrdersList from "@/views/admin/OrdersList.vue";
 
 // views for Auth layout
 
@@ -31,34 +33,10 @@ import Register from "@/views/auth/Register.vue";
 
 import Landing from "@/views/Landing.vue";
 import Profile from "@/views/Profile.vue";
-import Index from "@/views/Index.vue";
 
 // routes
 
 const routes = [
-  {
-    path: "/admin",
-    redirect: "/admin/dashboard",
-    component: Admin,
-    children: [
-      {
-        path: "/admin/dashboard",
-        component: Dashboard,
-      },
-      {
-        path: "/admin/settings",
-        component: Settings,
-      },
-      {
-        path: "/admin/tables",
-        component: Tables,
-      },
-      {
-        path: "/admin/maps",
-        component: Maps,
-      },
-    ],
-  },
   {
     path: "/auth",
     redirect: "/auth/login",
@@ -84,7 +62,34 @@ const routes = [
   },
   {
     path: "/",
-    component: Index,
+    redirect: "/admin/dashboard",
+    component: Admin,
+    children: [
+      {
+        path: "/admin/dashboard",
+        component: Dashboard,
+      },
+      {
+        path: "/admin/settings",
+        component: Settings,
+      },
+      {
+        path: "/admin/tables",
+        component: Tables,
+      },
+      {
+        path: "/admin/maps",
+        component: Maps,
+      },
+      {
+        path: "/admin/bikers",
+        component: BikersList,
+      },
+      {
+        path: "/admin/orders",
+        component: OrdersList,
+      },
+    ],
   },
   { path: "/:pathMatch(.*)*", redirect: "/" },
 ];
